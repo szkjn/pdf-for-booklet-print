@@ -1,6 +1,7 @@
 import os
 import sys
 import fitz
+from typing import List, Tuple
 
 
 def create_tmp_pdf(file_path: str) -> str:
@@ -29,7 +30,7 @@ def create_tmp_pdf(file_path: str) -> str:
     return tmp_filepath
 
 
-def reorder_pages(file_path: str) -> list:
+def reorder_pages(file_path: str) -> List[Tuple]:
     """
     Reorders pages for booklet print (2 pages / A4).
 
@@ -55,7 +56,7 @@ def reorder_pages(file_path: str) -> list:
     return new_order
 
 
-def create_pdf_for_booklet_print(file_path: str, new_order: list) -> None:
+def create_pdf_for_booklet_print(file_path: str, new_order: List[Tuple]) -> None:
     """
     Creates a new PDF for a double-sided booklet print from a PDF with n
     (number of pages) multiple of 4. The new PDF has one front page containing
